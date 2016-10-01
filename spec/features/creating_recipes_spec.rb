@@ -12,4 +12,15 @@ RSpec.feature 'Users can create recipes' do
 
     expect(page).to have_content 'Recipe has been created.'
   end
+
+  scenario 'with invalid attributes' do
+    visit '/'
+
+    click_link 'New Recipe'
+
+    fill_in 'Title', with: ""
+    click_button 'Create Recipe'
+
+    expect(page).to have_content 'Recipe has not been created.'
+  end
 end

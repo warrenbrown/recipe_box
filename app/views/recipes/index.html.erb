@@ -1,3 +1,8 @@
 <h1>Listing Recipes</h1>
 
 <%= link_to 'New Recipe', new_recipe_path, class: 'btn btn-primary' %>
+
+<% @recipes.each do |recipe| %>
+  <h2><%= link_to recipe.title, recipe_path(recipe) %></h2>
+  <p><%= recipe.description %></p>
+<% end %>
