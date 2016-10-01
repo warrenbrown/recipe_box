@@ -38,6 +38,12 @@ class RecipesController < ApplicationController
     end
   end
 
+  def destroy
+    @recipe.delete
+    flash[:notice] = 'Recipe has been deleted.'
+    redirect_to recipes_path
+  end
+
   private
 
   def recipe_params
